@@ -3,20 +3,20 @@ import { useState } from "react";
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
-      }
-    });
-  }
+   function handleSubmit(e) {
+     e.preventDefault();
+     fetch("/login", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify({ username }),
+     }).then((r) => {
+        if (r.ok) {
+         r.json().then((user) => onLogin(user));
+       }
+     });
+   }
 
   return (
     <form onSubmit={handleSubmit}>
